@@ -1,4 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- General -->
     <string name="title">NewsApp</string>
+
+    <!-- BottomNavigation -->
+    <string name="home_bottom_navigation">Home</string>
+    <string name="saved_bottom_navigation">Saved</string>
 </resources>
