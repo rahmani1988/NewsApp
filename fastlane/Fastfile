@@ -16,23 +16,68 @@
 default_platform(:android)
 
 platform :android do
-  desc "Runs all the tests"
-  lane :test do
-    gradle(task: "test")
-  end
+    # private_lanes
+    desc "Clean"
+    private_lane :clean do
+        gradle(task: "clean")
+    end
 
-  desc "Submit a new Beta Build to Crashlytics Beta"
-  lane :beta do
-    gradle(task: "clean assembleRelease")
-    crashlytics
-  
-    # sh "your_script.sh"
-    # You can also use other beta testing services here
-  end
+    desc "Download dependencies"
+    private_lane :download_dependencies do
+    gradle(task: "androidDependencies")
+    end
 
-  desc "Deploy a new version to the Google Play"
-  lane :deploy do
-    gradle(task: "clean assembleRelease")
-    upload_to_play_store
-  end
+    desc "Setup variables"
+    private_lane :setup_variables do
+        BUILD_TYPE = ENV["BUILD_TYPE"]
+        FIREBASE_APP_ID = ENV["FIREBASE_APP_ID"]
+        FIREBASE_CI_TOKEN = ENV["FIREBASE_CI_TOKEN"]
+        CHANNEL = ENV["CHANNEL"]
+        SLACK_URL = ENV["SLACK_URL"]
+    end
+
+    # public_lanes
+    desc "Unit tests"
+    lane :tests do
+        clean
+        setup_variables
+        gradle(
+            task: "assemble",
+            build_type: BUILD_TYPE,
+        )
+        slack_send(':crossed_fingers: Running Unit Tests ' + BUILD_TYPE, CHANNEL, SLACK_URL)
+        gradle(task: "test")
+        slack_send(':tada: ' + BUILD_TYPE + ' Unit tests are successfully tested', CHANNEL, SLACK_URL)
+    end
+
+    desc "Generate build and upload to firebase"
+    lane :build do
+    clean
+    download_dependencies
+    setup_variables
+    slack_send(':crossed_fingers: Generating ' + BUILD_TYPE + ' build', CHANNEL, SLACK_URL)
+    gradle(
+        task: "assemble",
+        build_type: BUILD_TYPE,
+    )
+    slack_send(BUILD_TYPE + ' Build Successfully completed...:star-struck: \n Uploading to Firebase', CHANNEL, SLACK_URL)
+    firebase_app_distribution(
+        app: FIREBASE_APP_ID,
+        release_notes_file: "releaseNotes.txt",
+        groups: "Internal",
+        firebase_cli_token: FIREBASE_CI_TOKEN,
+        debug: false
+    )
+    slack_send(':tada: Hooooooorrrayyyyy!!! ' + BUILD_TYPE + ' Build is successfully uploaded on Firebase  Distribution!! :dancer::man_dancing:', CHANNEL, SLACK_URL)
+    end
+end
+
+def slack_send(msg, channel, url)
+    slack(
+      slack_url: url,
+      message: msg,
+      success: true,
+      channel: channel,
+      default_payloads: []
+    )
 end
