@@ -4,20 +4,20 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.composable
+import com.reza.auth.ui.AuthScreen
 import com.reza.core.navigation.Feature
 import com.reza.core.navigation.Screen
+import javax.inject.Inject
 
 interface AuthFeature : Feature {
     fun authRoute(): String
 }
 
-class DefaultAuthFeature : AuthFeature {
+class DefaultAuthFeature @Inject constructor() : AuthFeature {
 
     private val baseRoute = Screen.Auth.route
 
-    override fun authRoute(): String {
-        return baseRoute
-    }
+    override fun authRoute() = baseRoute
 
     override fun registerGraph(
         navGraphBuilder: NavGraphBuilder,
@@ -25,8 +25,10 @@ class DefaultAuthFeature : AuthFeature {
         modifier: Modifier
     ) {
         navGraphBuilder.composable(baseRoute) {
-            //AuthScreen(modifier = modifier, navController = navController)
+            AuthScreen(
+                modifier = modifier,
+                navController = navController
+            )
         }
     }
-
 }

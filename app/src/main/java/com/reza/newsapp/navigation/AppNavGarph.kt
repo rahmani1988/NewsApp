@@ -19,36 +19,7 @@ fun AppNavGraph(
         navController = navController,
         startDestination = ""
     ) {
-
+        // To register
         //register(feature = AuthFeature, )
-
-        // onboarding
-        composable("onboarding") {
-            Box(modifier = modifier) {
-                Text("onboarding")
-            }
-        }
-
-        // splash
-        composable("splash") {
-            Box(modifier = modifier) {
-                Text("splash")
-            }
-        }
-
-        // auth
-        composable("auth") {
-            Box(modifier = modifier) {
-                Text("auth")
-            }
-        }
-
-        // home
-        composable("dashboard") {
-            Box(modifier = modifier) {
-                Text("dashboard")
-            }
-        }
-
     }
 }

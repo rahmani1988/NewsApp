@@ -94,9 +94,9 @@ dependencies {
 }
 
 // Allow references to generated code
-kapt {
-    correctErrorTypes true
-}
+//kapt {
+//    correctErrorTypes true
+//}
 
 File signPropsFile = file('../signing/release.props')
 if (signPropsFile.exists()) {
