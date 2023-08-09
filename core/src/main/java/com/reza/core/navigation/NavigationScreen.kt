@@ -25,6 +25,7 @@ sealed class Screen(
 ) {
     object Start : Screen(route = "start_screen")
     object Auth : Screen(route = "auth_screen")
+    object Dashboard : Screen(route = "dashboard_screen")
 
     object HeadlineDetails : Screen(route = "headline_details_screen", objectName = "headlineID", objectPath = "/{headlineID}")
 

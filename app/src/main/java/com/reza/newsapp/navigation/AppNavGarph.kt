@@ -1,25 +1,38 @@
 package com.reza.newsapp.navigation
 
-import androidx.compose.foundation.layout.Box
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
-import androidx.navigation.compose.composable
 import com.reza.auth.navigation.AuthFeature
 import com.reza.core.navigation.register
+import com.reza.dashboard.navigation.DashboardFeature
+import com.reza.dashboard.navigation.DefaultDashboardFeature
 
 @Composable
 fun AppNavGraph(
     modifier: Modifier = Modifier,
-    navController: NavHostController
+    navController: NavHostController,
+    startDestination: String,
+    authFeature: AuthFeature,
+    dashboardFeature: DashboardFeature
 ) {
     NavHost(
         navController = navController,
-        startDestination = ""
+        startDestination = startDestination
     ) {
-        // To register
-        //register(feature = AuthFeature, )
+        // Register Auth
+        register(
+            feature = authFeature,
+            navController = navController,
+            modifier = modifier
+        )
+
+        // Register Dashboard
+        register(
+            feature = dashboardFeature,
+            navController = navController,
+            modifier = modifier
+        )
     }
 }
