@@ -1,6 +1,6 @@
 #! groovy
 
-slack_channel = 'weather_app_release'
+slack_channel = 'news_app_release'
 
 pipeline {
     agent any
