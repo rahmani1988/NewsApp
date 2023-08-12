@@ -9,8 +9,8 @@ pipeline {
         BUILD_TYPE = "$env.BUILD_TYPE_DEBUG"
         FIREBASE_APP_ID = "$env.FIREBASE_APP_ID_DEBUG"
         FIREBASE_CI_TOKEN = "$env.FIREBASE_CI_TOKEN"
-        CHANNEL = "$env.CHANNEL"
-        SLACK_URL = "$env.SLACK_URL"
+        CHANNEL = "$env.CHANNEL_NEWSAPP"
+        SLACK_URL = "$env.$SLACK_URL_NEWSAPP"
         LC_ALL = "en_US.UTF-8"
         LANG = "en_US.UTF-8"
     }
