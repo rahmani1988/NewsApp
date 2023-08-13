@@ -57,7 +57,7 @@ pipeline {
         stage('Build and upload to firebase app distribution') {
               when {
                 anyOf {
-                    branch "development";
+                    branch "master";
                     branch "feature/*";
                 }
               }
