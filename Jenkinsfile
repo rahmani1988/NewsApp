@@ -83,7 +83,7 @@ pipeline {
             slack_send("Jenkins job for development Skipped/Aborted.","warning")
         }
         failure {
-            slack_send("staging Something went wrong.Build failed. Check here: Console Output*: <${BUILD_URL}/console | (Open)>","danger")
+            slack_send("Something went wrong.Build failed. Check here: Console Output*: <${BUILD_URL}/console | (Open)>","danger")
         }
     }
 }

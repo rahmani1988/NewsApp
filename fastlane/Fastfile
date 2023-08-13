@@ -24,7 +24,7 @@ platform :android do
 
     desc "Download dependencies"
     private_lane :download_dependencies do
-    gradle(task: "androidDependencies")
+        gradle(task: "androidDependencies")
     end
 
     desc "Setup variables"
@@ -62,10 +62,10 @@ platform :android do
     )
     slack_send(BUILD_TYPE + ' Build Successfully completed...:star-struck: \n Uploading to Firebase', CHANNEL, SLACK_URL)
     firebase_app_distribution(
-        app: "1:270957354924:android:f798cff0f4571d98aae409",
+        app: FIREBASE_APP_ID,
         release_notes_file: "releaseNotes.txt",
         groups: "Internal",
-        firebase_cli_token: "1//033NoGcJ-gZdKCgYIARAAGAMSNwF-L9IrQFFgVvtxdAU_pVXItlRBUSIxWbWcOzpKeXk2_l2z2V33D094SdzEmlBz0rMm-eXfu6M",
+        firebase_cli_token: FIREBASE_CI_TOKEN,
         debug: false
     )
     slack_send(':tada: Hooooooorrrayyyyy!!! ' + BUILD_TYPE + ' Build is successfully uploaded on Firebase  Distribution!! :dancer::man_dancing:', CHANNEL, SLACK_URL)
