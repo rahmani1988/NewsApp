@@ -7,8 +7,8 @@ pipeline {
 
     environment {
         BUILD_TYPE = "$env.BUILD_TYPE_DEBUG"
-        FIREBASE_APP_ID = "$env.FIREBASE_APP_ID_DEBUG"
-        FIREBASE_CI_TOKEN = "$env.FIREBASE_CI_TOKEN"
+        FIREBASE_APP_ID = "$env.FIREBASE_APP_ID_DEBUG_NEWSAPP"
+        FIREBASE_CI_TOKEN = "$env.FIREBASE_CI_TOKEN_NEWSAPP"
         CHANNEL = "$env.CHANNEL_NEWSAPP"
         SLACK_URL = "$env.SLACK_URL_NEWSAPP"
         LC_ALL = "en_US.UTF-8"
