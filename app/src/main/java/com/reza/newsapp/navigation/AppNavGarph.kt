@@ -21,14 +21,14 @@ fun AppNavGraph(
         navController = navController,
         startDestination = startDestination
     ) {
-        // Register Auth
+        // to register auth module
         register(
             feature = authFeature,
             navController = navController,
             modifier = modifier
         )
 
-        // Register Dashboard
+        // to register dashboard module
         register(
             feature = dashboardFeature,
             navController = navController,

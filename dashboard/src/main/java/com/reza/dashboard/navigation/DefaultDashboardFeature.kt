@@ -25,5 +25,7 @@ class DefaultDashboardFeature @Inject constructor() : DashboardFeature {
                 navController = navController
             )
         }
+
+        // to implement internal navigation
     }
 }

@@ -23,11 +23,14 @@ sealed class Screen(
     val objectName: String = "",
     val objectPath: String = ""
 ) {
-    object Start : Screen(route = "start_screen")
-    object Auth : Screen(route = "auth_screen")
-    object Dashboard : Screen(route = "dashboard_screen")
+    object Start : Screen(route = "start")
+    object Auth : Screen(route = "auth")
+    object Dashboard : Screen(route = "dashboard")
 
-    object HeadlineDetails : Screen(route = "headline_details_screen", objectName = "headlineID", objectPath = "/{headlineID}")
+    object DashboardScreenA: Screen(route = "dashboard/ScreenA")
+    object DashboardScreenB: Screen(route = "dashboard/ScreenB")
+
+    object HeadlineDetails : Screen(route = "headlineDetailsScreen", objectName = "headlineID", objectPath = "/{headlineID}")
 
     // NavigationDrawer
     // TODO: must add navigation drawer here
