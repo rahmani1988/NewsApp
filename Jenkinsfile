@@ -65,7 +65,7 @@ pipeline {
               // call fastlane lane for generate apk and uploading to firebase console
               steps {
                 echo "Building"
-                sh "bundle exec fastlane android build --env development"
+                sh "bundle exec fastlane android build --env master"
               }
         }
     }
