@@ -8,12 +8,12 @@ plugins {
 
 android {
     namespace 'com.reza.newsapp'
-    compileSdk 33
+    compileSdk 34
 
     defaultConfig {
         applicationId "com.reza.newsapp"
         minSdk 21
-        targetSdk 33
+        targetSdk 34
         versionCode 1
         versionName "1.0"
 
