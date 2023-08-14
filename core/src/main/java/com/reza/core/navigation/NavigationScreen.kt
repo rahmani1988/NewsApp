@@ -24,8 +24,17 @@ sealed class Screen(
     val objectPath: String = ""
 ) {
     object Start : Screen(route = "start")
+
+    /**
+     * Auth module
+     */
     object Auth : Screen(route = "auth")
+
+    /**
+     * Dashboard module
+     */
     object Dashboard : Screen(route = "dashboard")
+    object DashboardFlowAB: Screen(route = "dashboard/flowAB")
 
     object DashboardScreenA: Screen(route = "dashboard/ScreenA")
     object DashboardScreenB: Screen(route = "dashboard/ScreenB")

@@ -24,6 +24,7 @@ class DefaultAuthFeature @Inject constructor() : AuthFeature {
                 modifier = modifier,
                 navController = navController
             ) {
+                // navigate to dashboard
                 navController.popBackStack()
                 navController.navigate(Screen.Dashboard.route)
             }

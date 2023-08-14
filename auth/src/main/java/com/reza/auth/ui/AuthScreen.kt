@@ -14,7 +14,7 @@ import androidx.navigation.NavController
 fun AuthScreen(
     modifier: Modifier = Modifier,
     navController: NavController,
-    onNavigateToHomeClicked: () -> Unit
+    onNavigateToDashboardClicked: () -> Unit
 ) {
     Box(
         modifier = modifier.fillMaxSize(),
@@ -22,7 +22,7 @@ fun AuthScreen(
     ) {
         Column {
             Text("Auth Screen")
-            Button(onClick = onNavigateToHomeClicked) {
+            Button(onClick = onNavigateToDashboardClicked) {
                 Text(text = "Navigate to Home")
             }
         }
