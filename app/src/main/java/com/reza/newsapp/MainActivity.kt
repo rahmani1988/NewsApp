@@ -3,18 +3,15 @@ package com.reza.newsapp
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.compose.rememberNavController
 import com.reza.auth.navigation.AuthFeature
-import com.reza.core.navigation.Screen
+import com.reza.core.navigation.BASE_ROUTE_AUTH
 import com.reza.dashboard.navigation.DashboardFeature
 import com.reza.newsapp.navigation.AppNavGraph
 import com.reza.newsapp.ui.theme.NewsAppTheme
@@ -37,7 +34,7 @@ class MainActivity : ComponentActivity() {
                 val navController = rememberNavController()
                 Scaffold { innerPaddingModifier ->
                     AppNavGraph(
-                        startDestination = Screen.Auth.route,
+                        startDestination = BASE_ROUTE_AUTH,
                         navController = navController,
                         modifier = Modifier.padding(innerPaddingModifier),
                         authFeature = authFeature,

@@ -5,12 +5,13 @@ import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.composable
 import com.reza.auth.ui.AuthScreen
-import com.reza.core.navigation.Screen
+import com.reza.core.navigation.BASE_ROUTE_AUTH
+import com.reza.core.navigation.ROUTE_DASHBOARD
 import javax.inject.Inject
 
 class DefaultAuthFeature @Inject constructor() : AuthFeature {
 
-    private val baseRoute = Screen.Auth.route
+    private val baseRoute = BASE_ROUTE_AUTH
 
     override fun authRoute() = baseRoute
 
@@ -21,12 +22,11 @@ class DefaultAuthFeature @Inject constructor() : AuthFeature {
     ) {
         navGraphBuilder.composable(baseRoute) {
             AuthScreen(
-                modifier = modifier,
-                navController = navController
+                modifier = modifier
             ) {
                 // navigate to dashboard
                 navController.popBackStack()
-                navController.navigate(Screen.Dashboard.route)
+                navController.navigate(ROUTE_DASHBOARD)
             }
         }
     }

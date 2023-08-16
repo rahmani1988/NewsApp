@@ -12,6 +12,10 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import com.reza.core.R
 
+
+const val ROUTE_DASHBOARD = "dashboard"
+const val BASE_ROUTE_AUTH = "auth"
+
 sealed class Screen(
     val route: String,
     @StringRes val title: Int = R.string.title,

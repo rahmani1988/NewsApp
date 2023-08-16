@@ -13,7 +13,6 @@ import androidx.navigation.NavController
 @Composable
 fun AuthScreen(
     modifier: Modifier = Modifier,
-    navController: NavController,
     onNavigateToDashboardClicked: () -> Unit
 ) {
     Box(
