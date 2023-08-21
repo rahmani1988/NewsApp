@@ -1,17 +1,23 @@
 package com.reza.dashboard.navigation
 
+import android.net.Uri
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
+import androidx.navigation.NavType
 import androidx.navigation.compose.composable
+import androidx.navigation.navArgument
 import androidx.navigation.navigation
 import com.reza.core.navigation.ROUTE_DASHBOARD
 import com.reza.dashboard.ui.DashboardScreen
+import com.reza.dashboard.ui.ScreenA
+import com.reza.dashboard.ui.ScreenB
 import javax.inject.Inject
 
 private const val SCENARIO_AB_ROUTE = "$ROUTE_DASHBOARD/scenarioAB"
-private const val A_SCREEN_ROUTE = "$SCENARIO_AB_ROUTE/aScreen"
-private const val B_SCREEN_ROUTE = "$SCENARIO_AB_ROUTE/bScreen"
+private const val SCREEN_A_ROUTE = "$SCENARIO_AB_ROUTE/screenA"
+private const val SCREEN_B_ROUTE = "$SCENARIO_AB_ROUTE/screenB"
+private const val argumentKey = "arg"
 
 class DefaultDashboardFeature @Inject constructor() : DashboardFeature {
     override fun dashboardRoute() = ROUTE_DASHBOARD
@@ -37,9 +43,34 @@ class DefaultDashboardFeature @Inject constructor() : DashboardFeature {
          */
         navGraphBuilder.navigation(
             route = SCENARIO_AB_ROUTE,
-            startDestination = A_SCREEN_ROUTE
+            startDestination = SCREEN_A_ROUTE
         ) {
-            // TODO: To Add A and B composable functions and handle navigation here
+            composable(route = SCREEN_A_ROUTE) {
+                ScreenA(
+                    modifier = modifier,
+                    onNavigateNextWithArgument = { argument ->
+                        val encodedArgument = Uri.encode(argument)
+                        navController.navigate(route = "$SCREEN_B_ROUTE/$encodedArgument")
+                    }
+                )
+            }
+
+            composable(
+                route = "$SCREEN_B_ROUTE/{$argumentKey}",
+                arguments = listOf(
+                    navArgument(argumentKey) {
+                        type = NavType.StringType
+                    }
+                )
+            ) { backStackEntry ->
+                val arguments = requireNotNull(backStackEntry.arguments)
+                val argument = Uri.decode(arguments.getString(argumentKey).orEmpty())
+
+                ScreenB(
+                    modifier = modifier,
+                    argument = argument.orEmpty()
+                )
+            }
         }
     }
 }

@@ -18,7 +18,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
 @Composable
-internal fun AScreen(
+internal fun ScreenA(
     modifier: Modifier,
     onNavigateNextWithArgument: (String) -> Unit
 ) {
