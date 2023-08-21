@@ -94,11 +94,6 @@ dependencies {
     debugImplementation 'androidx.compose.ui:ui-test-manifest'
 }
 
-// Allow references to generated code
-//kapt {
-//    correctErrorTypes true
-//}
-
 File signPropsFile = file('../signing/release.props')
 if (signPropsFile.exists()) {
     Properties props = new Properties()
@@ -141,4 +136,18 @@ def getProps(path) {
     Properties props = new Properties()
     props.load(new FileInputStream(file(path)))
     return props
+}
+
+def getApiKey() {
+    def adMobApiKey = System.getenv("NEWS_APP_API_KEY")
+    if (adMobApiKey == null || adMobApiKey.length() == 0) {
+        def localFile = file("../local.properties")
+        def properties = new Properties()
+        properties.load(new FileInputStream(localFile))
+        adMobApiKey = properties['NEWS_APP_API_KEY']
+        if (adMobApiKey == null) {
+            logger.error("You need to either place appropriate local.properties or set proper environment variables on Jenkins for API key")
+        }
+    }
+    return adMobApiKey
 }
