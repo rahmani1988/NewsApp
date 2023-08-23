@@ -52,6 +52,8 @@ dependencies {
     api 'androidx.compose.material3:material3'
     api 'androidx.navigation:navigation-compose:2.7.0'
 
+    // Network
+
     // Hilt
     api "com.google.dagger:hilt-android:2.44.2"
     kapt "com.google.dagger:hilt-compiler:2.44.2"
