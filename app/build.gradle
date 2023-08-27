@@ -25,7 +25,18 @@ android {
 
     buildTypes {
         debug {
+            minifyEnabled false
             buildConfigField "String", "NEWS_API_KEY", "\"${getNewsApiKey()}\""
+            ext.config = getProps('../config/debug.properties')
+            ext.config.each { p ->
+                if (p.key == "APP_NAME") {
+                    resValue "string", "app_name", p.value
+                } else if (p.key == "APPLICATION_ID_SUFFIX") {
+                    applicationIdSuffix p.value
+                } else {
+                    buildConfigField 'String', p.key, p.value
+                }
+            }
         }
         release {
             minifyEnabled true
@@ -71,7 +82,7 @@ dependencies {
     // Projects
     implementation project(':core')
     implementation project(':auth')
-    implementation project(':dashboard')
+    implementation project(':home')
 
     implementation 'androidx.core:core-ktx:1.10.1'
     implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.6.1'

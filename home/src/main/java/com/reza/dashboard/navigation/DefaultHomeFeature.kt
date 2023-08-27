@@ -8,19 +8,19 @@ import androidx.navigation.NavType
 import androidx.navigation.compose.composable
 import androidx.navigation.navArgument
 import androidx.navigation.navigation
-import com.reza.core.navigation.ROUTE_DASHBOARD
-import com.reza.dashboard.ui.DashboardScreen
+import com.reza.core.navigation.ROUTE_HOME
+import com.reza.dashboard.ui.HomeScreen
 import com.reza.dashboard.ui.ScreenA
 import com.reza.dashboard.ui.ScreenB
 import javax.inject.Inject
 
-private const val SCENARIO_AB_ROUTE = "$ROUTE_DASHBOARD/scenarioAB"
+private const val SCENARIO_AB_ROUTE = "$ROUTE_HOME/scenarioAB"
 private const val SCREEN_A_ROUTE = "$SCENARIO_AB_ROUTE/screenA"
 private const val SCREEN_B_ROUTE = "$SCENARIO_AB_ROUTE/screenB"
 private const val argumentKey = "arg"
 
-class DefaultDashboardFeature @Inject constructor() : DashboardFeature {
-    override fun dashboardRoute() = ROUTE_DASHBOARD
+class DefaultHomeFeature @Inject constructor() : HomeFeature {
+    override fun dashboardRoute() = ROUTE_HOME
 
     override fun registerGraph(
         navGraphBuilder: NavGraphBuilder,
@@ -30,8 +30,8 @@ class DefaultDashboardFeature @Inject constructor() : DashboardFeature {
         /**
          * To navigate to dashboard module from other modules
          */
-        navGraphBuilder.composable(ROUTE_DASHBOARD) {
-            DashboardScreen(
+        navGraphBuilder.composable(ROUTE_HOME) {
+            HomeScreen(
                 modifier = modifier
             ) {
                 navController.navigate(SCENARIO_AB_ROUTE)

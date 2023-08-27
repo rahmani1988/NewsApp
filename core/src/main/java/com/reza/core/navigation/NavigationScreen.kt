@@ -13,7 +13,7 @@ import androidx.compose.ui.unit.dp
 import com.reza.core.R
 
 
-const val ROUTE_DASHBOARD = "dashboard"
+const val ROUTE_HOME = "home"
 const val BASE_ROUTE_AUTH = "auth"
 
 sealed class Screen(
@@ -33,15 +33,6 @@ sealed class Screen(
      * Auth module
      */
     object Auth : Screen(route = "auth")
-
-    /**
-     * Dashboard module
-     */
-    object Dashboard : Screen(route = "dashboard")
-    object DashboardFlowAB: Screen(route = "dashboard/flowAB")
-
-    object DashboardScreenA: Screen(route = "dashboard/ScreenA")
-    object DashboardScreenB: Screen(route = "dashboard/ScreenB")
 
     object HeadlineDetails : Screen(route = "headlineDetailsScreen", objectName = "headlineID", objectPath = "/{headlineID}")
 

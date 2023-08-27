@@ -12,7 +12,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.compose.rememberNavController
 import com.reza.auth.navigation.AuthFeature
 import com.reza.core.navigation.BASE_ROUTE_AUTH
-import com.reza.dashboard.navigation.DashboardFeature
+import com.reza.dashboard.navigation.HomeFeature
 import com.reza.newsapp.navigation.AppNavGraph
 import com.reza.newsapp.ui.theme.NewsAppTheme
 import dagger.hilt.android.AndroidEntryPoint
@@ -25,7 +25,7 @@ class MainActivity : ComponentActivity() {
     lateinit var authFeature: AuthFeature
 
     @Inject
-    lateinit var dashboardFeature: DashboardFeature
+    lateinit var dashboardFeature: HomeFeature
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

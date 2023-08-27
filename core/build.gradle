@@ -50,9 +50,13 @@ dependencies {
     api 'androidx.compose.ui:ui-graphics'
     api 'androidx.compose.ui:ui-tooling-preview'
     api 'androidx.compose.material3:material3'
-    api 'androidx.navigation:navigation-compose:2.7.0'
+    api 'androidx.navigation:navigation-compose:2.7.1'
 
     // Network
+    api 'com.squareup.retrofit2:retrofit:2.9.0'
+    api 'com.squareup.retrofit2:converter-moshi:2.4.0'
+    api 'com.squareup.okhttp3:okhttp:4.10.0'
+    api 'com.squareup.okhttp3:logging-interceptor:4.10.0'
 
     // Hilt
     api "com.google.dagger:hilt-android:2.44.2"

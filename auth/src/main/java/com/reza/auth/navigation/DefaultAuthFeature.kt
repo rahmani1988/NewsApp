@@ -6,7 +6,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.composable
 import com.reza.auth.ui.AuthScreen
 import com.reza.core.navigation.BASE_ROUTE_AUTH
-import com.reza.core.navigation.ROUTE_DASHBOARD
+import com.reza.core.navigation.ROUTE_HOME
 import javax.inject.Inject
 
 class DefaultAuthFeature @Inject constructor() : AuthFeature {
@@ -26,7 +26,7 @@ class DefaultAuthFeature @Inject constructor() : AuthFeature {
             ) {
                 // navigate to dashboard
                 navController.popBackStack()
-                navController.navigate(ROUTE_DASHBOARD)
+                navController.navigate(ROUTE_HOME)
             }
         }
     }

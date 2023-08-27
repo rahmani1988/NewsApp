@@ -6,8 +6,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import com.reza.auth.navigation.AuthFeature
 import com.reza.core.navigation.register
-import com.reza.dashboard.navigation.DashboardFeature
-import com.reza.dashboard.navigation.DefaultDashboardFeature
+import com.reza.dashboard.navigation.HomeFeature
 
 @Composable
 fun AppNavGraph(
@@ -15,7 +14,7 @@ fun AppNavGraph(
     navController: NavHostController,
     startDestination: String,
     authFeature: AuthFeature,
-    dashboardFeature: DashboardFeature
+    dashboardFeature: HomeFeature
 ) {
     NavHost(
         navController = navController,
