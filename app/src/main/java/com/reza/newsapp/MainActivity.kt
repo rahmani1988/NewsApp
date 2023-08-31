@@ -10,22 +10,13 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.compose.rememberNavController
-import com.reza.auth.navigation.AuthFeature
 import com.reza.core.navigation.BASE_ROUTE_AUTH
-import com.reza.dashboard.navigation.HomeFeature
 import com.reza.newsapp.navigation.AppNavGraph
 import com.reza.newsapp.ui.theme.NewsAppTheme
 import dagger.hilt.android.AndroidEntryPoint
-import javax.inject.Inject
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
-
-    @Inject
-    lateinit var authFeature: AuthFeature
-
-    @Inject
-    lateinit var dashboardFeature: HomeFeature
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,9 +27,7 @@ class MainActivity : ComponentActivity() {
                     AppNavGraph(
                         startDestination = BASE_ROUTE_AUTH,
                         navController = navController,
-                        modifier = Modifier.padding(innerPaddingModifier),
-                        authFeature = authFeature,
-                        dashboardFeature = dashboardFeature
+                        modifier = Modifier.padding(innerPaddingModifier)
                     )
                 }
             }

@@ -13,7 +13,7 @@ import androidx.navigation.NavController
 @Composable
 fun AuthScreen(
     modifier: Modifier = Modifier,
-    onNavigateToDashboardClicked: () -> Unit
+    onNavigateToHomeClicked: () -> Unit
 ) {
     Box(
         modifier = modifier.fillMaxSize(),
@@ -21,7 +21,7 @@ fun AuthScreen(
     ) {
         Column {
             Text("Auth Screen")
-            Button(onClick = onNavigateToDashboardClicked) {
+            Button(onClick = onNavigateToHomeClicked) {
                 Text(text = "Navigate to Home")
             }
         }
