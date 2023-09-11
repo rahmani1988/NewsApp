@@ -16,7 +16,7 @@ import com.reza.dashboard.ui.ScreenB
 private const val SCENARIO_AB_ROUTE = "$ROUTE_HOME/scenarioAB"
 private const val SCREEN_A_ROUTE = "$SCENARIO_AB_ROUTE/screenA"
 private const val SCREEN_B_ROUTE = "$SCENARIO_AB_ROUTE/screenB"
-private const val argumentKey = "arg"
+private const val ARGUMENT_KEY = "arg"
 
 fun NavController.navigateToRouteAB() {
     navigate(SCENARIO_AB_ROUTE)
@@ -54,15 +54,15 @@ fun NavGraphBuilder.homeFeature(
         }
 
         composable(
-            route = "$SCREEN_B_ROUTE/{$argumentKey}",
+            route = "$SCREEN_B_ROUTE/{$ARGUMENT_KEY}",
             arguments = listOf(
-                navArgument(argumentKey) {
+                navArgument(ARGUMENT_KEY) {
                     type = NavType.StringType
                 }
             )
         ) { backStackEntry ->
             val arguments = requireNotNull(backStackEntry.arguments)
-            val argument = Uri.decode(arguments.getString(argumentKey).orEmpty())
+            val argument = Uri.decode(arguments.getString(ARGUMENT_KEY).orEmpty())
 
             ScreenB(
                 modifier = modifier,
