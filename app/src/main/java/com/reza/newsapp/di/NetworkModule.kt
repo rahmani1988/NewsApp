@@ -12,7 +12,7 @@ import retrofit2.converter.moshi.MoshiConverterFactory
 import java.util.concurrent.TimeUnit
 import javax.inject.Singleton
 
-private const val THIRTY_SECONDS = 30L
+private const val TEN_SECONDS = 10L
 private const val NEWS_API_KEY = "X-Api-Key"
 
 @Module
@@ -28,9 +28,9 @@ object NetworkModule {
     @Singleton
     fun provideOkHttpClient(loggingInterceptor: HttpLoggingInterceptor): OkHttpClient {
         val builder = OkHttpClient.Builder()
-            .connectTimeout(THIRTY_SECONDS, TimeUnit.SECONDS)
-            .readTimeout(THIRTY_SECONDS, TimeUnit.SECONDS)
-            .writeTimeout(THIRTY_SECONDS, TimeUnit.SECONDS)
+            .connectTimeout(TEN_SECONDS, TimeUnit.SECONDS)
+            .readTimeout(TEN_SECONDS, TimeUnit.SECONDS)
+            .writeTimeout(TEN_SECONDS, TimeUnit.SECONDS)
             .followRedirects(true)
             .followSslRedirects(true)
             .addInterceptor { chain ->
@@ -42,7 +42,9 @@ object NetworkModule {
                 chain.proceed(newRequest)
             }
         return if (BuildConfig.DEBUG) {
-            builder.addInterceptor(loggingInterceptor).build()
+            builder
+                .addInterceptor(loggingInterceptor)
+                .build()
         } else {
             builder.build()
         }
@@ -56,5 +58,4 @@ object NetworkModule {
         .baseUrl(BuildConfig.BASE_URL)
         .client(okHttpClient)
         .build()
-
 }
