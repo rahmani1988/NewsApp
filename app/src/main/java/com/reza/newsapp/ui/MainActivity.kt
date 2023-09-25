@@ -20,14 +20,15 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
 
-    private val mainViewModel: MainViewModel by viewModels()
+    private val viewModel: MainViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        val splashScreen = installSplashScreen()
         super.onCreate(savedInstanceState)
         // Enable support for Splash Screen API for proper Android 12+ support
         installSplashScreen().apply {
             setKeepOnScreenCondition {
-                return@setKeepOnScreenCondition mainViewModel.isLoading.value
+                return@setKeepOnScreenCondition viewModel.isLoading.value
             }
         }
         setContent {

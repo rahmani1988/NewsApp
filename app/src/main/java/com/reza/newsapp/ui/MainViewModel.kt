@@ -3,6 +3,7 @@ package com.reza.newsapp.ui
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.reza.core.di.MainDispatcher
+import com.reza.core.model.UserData
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.CoroutineExceptionHandler
@@ -33,4 +34,9 @@ class MainViewModel @Inject constructor(
             _isLoading.value = false
         }
     }
+}
+
+sealed interface MainActivityUiState {
+    object Loading : MainActivityUiState
+    data class Success(val userData: UserData) : MainActivityUiState
 }

@@ -7,8 +7,6 @@ import androidx.navigation.compose.composable
 import com.reza.auth.ui.AuthScreen
 import com.reza.core.navigation.ROUTE_HOME
 
-private const val ROUTE_AUTH = "auth"
-
 fun NavController.navigateToHome() {
     navigate(ROUTE_HOME) {
         popBackStack()
