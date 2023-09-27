@@ -9,6 +9,7 @@ import com.reza.auth.navigation.navigateToHome
 import com.reza.dashboard.navigation.homeFeature
 import com.reza.dashboard.navigation.navigateToRouteAB
 import com.reza.dashboard.navigation.onNavigateNextWithArgument
+import com.reza.onboarding.navigation.navigateToAuth
 import com.reza.onboarding.navigation.onboardingFeature
 
 @Composable
@@ -24,7 +25,7 @@ fun AppNavGraph(
         // to register onboarding module
         onboardingFeature(
             modifier = modifier,
-            navigateToAuth = navController::navigateTo
+            navigateToAuth = navController::navigateToAuth
         )
 
         // to register auth module

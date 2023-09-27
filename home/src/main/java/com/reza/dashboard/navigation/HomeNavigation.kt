@@ -8,12 +8,12 @@ import androidx.navigation.NavType
 import androidx.navigation.compose.composable
 import androidx.navigation.navArgument
 import androidx.navigation.navigation
-import com.reza.core.navigation.ROUTE_HOME
+import com.reza.core.model.Constants
 import com.reza.dashboard.ui.HomeScreen
 import com.reza.dashboard.ui.ScreenA
 import com.reza.dashboard.ui.ScreenB
 
-private const val SCENARIO_AB_ROUTE = "$ROUTE_HOME/scenarioAB"
+private const val SCENARIO_AB_ROUTE = "home/scenarioAB"
 private const val SCREEN_A_ROUTE = "$SCENARIO_AB_ROUTE/screenA"
 private const val SCREEN_B_ROUTE = "$SCENARIO_AB_ROUTE/screenB"
 private const val ARGUMENT_KEY = "arg"
@@ -31,7 +31,7 @@ fun NavGraphBuilder.homeFeature(
     navigateToRouteAB: () -> Unit,
     onNavigateNextWithArgument: (String) -> Unit
 ) {
-    composable(ROUTE_HOME) {
+    composable(Constants.Routes.HOME.route) {
         HomeScreen(
             modifier = modifier,
             navigateToRouteAB = navigateToRouteAB

@@ -5,10 +5,10 @@ import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
 import com.reza.auth.ui.AuthScreen
-import com.reza.core.navigation.ROUTE_HOME
+import com.reza.core.model.Constants
 
 fun NavController.navigateToHome() {
-    navigate(ROUTE_HOME) {
+    navigate(Constants.Routes.HOME.route) {
         popBackStack()
     }
 }
@@ -17,7 +17,7 @@ fun NavGraphBuilder.authFeature(
     modifier: Modifier,
     navigateToHome: () -> Unit
 ) {
-    composable(ROUTE_AUTH) {
+    composable(Constants.Routes.AUTH.route) {
         AuthScreen(
             modifier = modifier,
             onNavigateToHomeClicked = navigateToHome

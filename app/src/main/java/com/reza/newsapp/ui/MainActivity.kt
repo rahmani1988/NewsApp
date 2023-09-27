@@ -12,7 +12,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.navigation.compose.rememberNavController
-import com.reza.core.navigation.BASE_ROUTE_AUTH
+import com.reza.core.model.Constants
 import com.reza.newsapp.navigation.AppNavGraph
 import com.reza.newsapp.ui.theme.NewsAppTheme
 import dagger.hilt.android.AndroidEntryPoint
@@ -36,7 +36,7 @@ class MainActivity : ComponentActivity() {
                 val navController = rememberNavController()
                 Scaffold { innerPaddingModifier ->
                     AppNavGraph(
-                        startDestination = BASE_ROUTE_AUTH,
+                        startDestination = Constants.Routes.AUTH.route,
                         navController = navController,
                         modifier = Modifier.padding(innerPaddingModifier)
                     )
