@@ -1,4 +1,4 @@
-package com.reza.newsapp.util.extensions
+package com.reza.core.util.extensions
 
 import android.content.Context
 import androidx.datastore.core.DataStore

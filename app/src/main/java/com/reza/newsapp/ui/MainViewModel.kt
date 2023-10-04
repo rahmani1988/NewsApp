@@ -2,7 +2,7 @@ package com.reza.newsapp.ui
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.reza.core.di.MainDispatcher
+import com.reza.core.data.di.MainDispatcher
 import com.reza.core.model.UserData
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.CoroutineDispatcher

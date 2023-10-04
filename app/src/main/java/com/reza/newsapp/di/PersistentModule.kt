@@ -3,7 +3,7 @@ package com.reza.newsapp.di
 import android.content.Context
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
-import com.reza.newsapp.util.extensions.userDataStore
+import com.reza.core.util.extensions.userDataStore
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

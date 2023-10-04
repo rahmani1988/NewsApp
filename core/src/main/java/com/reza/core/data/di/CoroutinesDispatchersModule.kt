@@ -1,4 +1,4 @@
-package com.reza.core.di
+package com.reza.core.data.di
 
 import dagger.Module
 import dagger.Provides
