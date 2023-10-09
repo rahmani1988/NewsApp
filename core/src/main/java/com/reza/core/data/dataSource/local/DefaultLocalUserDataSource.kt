@@ -16,7 +16,7 @@ class DefaultLocalUserDataSource @Inject constructor(private val dataStore: Data
         }
     }
 
-    override suspend fun onboardingVisited() {
+    override suspend fun setOnboardingVisited() {
         dataStore.edit { preference ->
             preference[Constants.PreferencesKeys.ONBOARDING_HAS_VISITED] = true
         }
