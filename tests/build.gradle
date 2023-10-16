@@ -37,7 +37,7 @@ dependencies {
     api 'com.nhaarman.mockitokotlin2:mockito-kotlin:2.2.0'
     api 'com.google.truth:truth:1.1.4'
     api 'org.robolectric:robolectric:4.9.2'
+    api 'org.jetbrains.kotlinx:kotlinx-coroutines-test:1.7.1'
     androidTestImplementation 'androidx.test.ext:junit-ktx:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
-    api 'org.jetbrains.kotlinx:kotlinx-coroutines-test:1.7.1'
 }

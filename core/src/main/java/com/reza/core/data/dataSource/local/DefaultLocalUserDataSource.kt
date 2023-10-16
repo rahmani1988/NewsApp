@@ -10,13 +10,13 @@ import javax.inject.Inject
 
 class DefaultLocalUserDataSource @Inject constructor(private val dataStore: DataStore<Preferences>) :
     LocalUserDataSource {
-    override fun shouldShowOnboarding(): Flow<Boolean> {
+    override fun isOnboardingVisited(): Flow<Boolean> {
         return dataStore.data.map { preferences ->
             preferences[Constants.PreferencesKeys.ONBOARDING_HAS_VISITED] ?: false
         }
     }
 
-    override suspend fun setOnboardingVisited() {
+    override suspend fun visitOnboarding() {
         dataStore.edit { preference ->
             preference[Constants.PreferencesKeys.ONBOARDING_HAS_VISITED] = true
         }
