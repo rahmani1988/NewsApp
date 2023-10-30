@@ -15,7 +15,7 @@ dependencyResolutionManagement {
 rootProject.name = "NewsApp"
 include ':app'
 include ':core'
-include ':auth'
-include ':home'
-include ':onboarding'
+include ':features:auth'
+include ':features:home'
+include ':features:onboarding'
 include ':tests'
